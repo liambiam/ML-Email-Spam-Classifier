@@ -187,9 +187,14 @@ def tpr(tn, fp, fn, tp):
 
 print("Recall: {0}".format(tpr(tn, fp, fn, tp)))
 
+# Display F1 Score
+def f1(tn, fp, fn, tp):
+  p = ppv(tn, fp, fn, tp)
+  r = tpr(tn, fp, fn, tp)
+  
+  return (2*p*r) / (p + r)
 
+print("F1 Score: {0}".format(f1(tn, fp, fn, tp)))
 
-
-
-
-#print(classification_report(y_test, model.predict(X_test)))
+print('\n')
+print(classification_report(y_test, model.predict(X_test)))
